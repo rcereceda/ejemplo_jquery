@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Desafío JQuery 01</title>
+	<style>
+		.form {
+		    border: 1px solid;
+		}
+	</style>
+	
+</head>
+<body>
+	<form>
+	<label name="first_name_label">First name:</label>
+	<br>
+	<input type="text" name="firstname">
+	<br>
+	Last name:
+	<br>
+	<input type="text" name="lastname">
+	<br>
+	<input type="radio" name="sex" value="male" checked>Male
+	<br>
+	<input type="radio" name="sex" value="female">Female
+	<br>
+	Favorite day of the week:
+	<br>
+	    <select name="fav_day">
+	        <option value="Friday">Friday</option>
+	        <option value="Saturday">Saturday</option>
+	        <option value="Monday">Monday</option>
+	    </select>
+	<br>
+	</form>
+
+	<br><br>
+	    
+	<form>
+	What's your major:
+	<br>
+	<input type="text" name="major">
+	<br>
+	What's your job title:
+	<br>
+	<input type="text" name="job_title">
+	<br>
+
+	Do you like challenges:
+	<br>
+	<input type="radio" name="challenge" value="yes" checked>Yes
+	<br>
+	<input type="radio" name="challenge" value="no">No
+	</form>
+	
+	<!-- Scritps -->
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js">
+	</script>
+	<script>
+		// 1. Pon tu nombre al atributo value del campo first name
+		$("[name=firstname]").val("Rodrigo");
+		// 2. Pon el valor a la pregunta Favorite Day of Week a Monday
+		$("[name=fav_day]").val("Monday");
+		// 3. Cambia la etiqueta de First name a 'Tu nombre'
+		$("[name=first_name_label]").text("Rodrigo");
+		// 4. Obtén el valor del atributo 'name' del campo Favorite Day of The Week
+		var name = $("[name=fav_day]").attr("name");
+		// 5. Escoge la opción Female de la pregunta de género.
+		$("[name=sex][value=female]").prop("checked", true);
+		// 6. Encuentra la primera form del documento y pon el atributo name = personal_info
+		$("form:eq(0)").prop("name", "personal_info");
+		// 7. Encuentra la primera form del documento y pon el atributo name = job_info
+		$("form:eq(1)").prop("name", "job_info");
+		// 8. Agrega un título h1 a cada una de las formas que diga 'Entrevista personal', 'Entrevista de trabajo' respectivamente
+		$("form:eq(0)").prepend("<h1>Entrevista personal</h1>");
+		$("form:eq(1)").prepend("<h1>Entrevista de trabajo</h1>");
+		// 9. Agrega un título a la pregunta Male/Female 'Gender'
+		$("[name=lastname]").after("<br>Gender:");
+		// 10. Agrega una pregunta Email: con un input
+		$("form:eq(0)").append("<br>Email:<br><input type='text' name='email'>");
+	</script>
+</body>
+</html>
